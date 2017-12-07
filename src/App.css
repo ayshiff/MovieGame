@@ -1,0 +1,130 @@
+.contentLeft {
+    width: 50%;
+    height: 100%;
+    display: none;
+  }
+
+  .Image2 {
+    background-color: rgba(0, 0, 255, 0.5);
+    opacity: 0.8;
+    height: 80%;
+    width: auto;
+  }
+  
+  
+  .ImageContainer {
+    margin-left: 10%;
+  }
+  
+  .ImageContainerRight {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  
+  .Image {
+    background-color: rgba(0, 0, 255, 0.5);
+    opacity: 0.8;
+    height: 80%;
+    width: auto;
+  }
+  
+  
+  .contentRight {
+    width: 50%;
+    height: 100%;
+    display: none;
+  }
+  
+  .FlexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin-top: 5%;
+  
+  
+  }
+  
+  @media (max-width: 1200px){
+  
+    .Image {
+      height: 600px;
+    }
+    .Image2 {
+      height: 600px;
+    }
+    .FlexContainer {
+      margin-top: 14%;
+    }
+  }
+  
+  @media (max-width: 600px){
+  .FlexContainer {
+    flex-direction: column;
+  }
+  }
+  
+  .search {
+    position: absolute;
+    left: 44%;
+    top: 49%;
+    z-index: 2;
+  }
+  
+  .Score {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 2;
+    display: none;
+  }
+  
+  .Erreur {
+    position: absolute;
+    right: 300px;
+    bottom: 50px;
+    z-index: 2;
+    display: none;
+  }
+  
+  .ContainerContribution {
+    height: 10px;
+    width: auto;
+    display: none;
+  }
+  
+  .ImageContribution {
+    height: auto;
+    width: 6%;
+  
+    position: absolute;
+    right: 40%;
+    left: 40%;
+    bottom: 50px;
+    z-index: 2;
+  }
+  
+  
+  .Image:hover, .Image2:hover  {
+    background: black;
+    opacity: 0.5;
+    cursor:  pointer;
+  }
+  
+  .AverageLeft {
+    position: absolute;
+    display: none;
+  
+  }
+  
+  .AverageRight {
+    position: absolute;
+    display: none;
+  }
+  
+  .header {
+    background: #081c24;
+    width: 100%;
+    height: 50px;
+  }
+  
