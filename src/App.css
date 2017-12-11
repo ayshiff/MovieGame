@@ -17,8 +17,7 @@
   }
   
   .ImageContainerRight {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
   }
   
   .Image {
@@ -41,6 +40,9 @@
     justify-content: space-around;
 
     margin-top: 5%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   
   
   }
