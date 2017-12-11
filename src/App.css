@@ -74,34 +74,48 @@
   .Score {
     position: absolute;
     right: 50px;
-    bottom: 50px;
+    top: -13px;
     z-index: 2;
     display: none;
+    color: #f4f4f4;
   }
   
   .Erreur {
     position: absolute;
     right: 300px;
-    bottom: 50px;
+    top: -13px;
     z-index: 2;
     display: none;
+    color: #f4f4f4;
+  }
+
+  .Rate {
+    position: absolute;
+    margin-left: 13px;
+    left: 0;
+    top: -13px;
+    z-index: 2;
+    display: none;
+    color: #f4f4f4;
+
   }
   
   .ContainerContribution {
-    height: 10px;
+    height: 20px;
     width: auto;
     display: none;
+    left: 39%;
   }
   
   .ImageContribution {
     height: auto;
-    width: 6%;
+    width: 10%;
   
     position: absolute;
-    right: 40%;
-    left: 40%;
+
     bottom: 50px;
     z-index: 2;
+    color: #f4f4f4;
   }
   
   

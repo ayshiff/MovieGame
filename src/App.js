@@ -20,6 +20,7 @@ import { setTimeout } from 'timers';
 
 
 
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -188,6 +189,7 @@ class App extends Component {
     document.querySelector('.Score').style.display = 'block';
     document.querySelector('.contentRight').style.display = 'block';
     document.querySelector('.contentLeft').style.display = 'block';
+    document.querySelector('.Rate').style.display = 'block';
     }, 2500);
     
   }
@@ -204,6 +206,7 @@ class App extends Component {
       <div className="header">
       <h1 className="Score">Score : {this.state.score}</h1>
       <h1 className="Erreur">Erreurs : {this.state.erreur}</h1>
+      <h1 className="Rate">Who's the highest rated ? </h1>
       
       </div>
       <div className='search'><RaisedButton label="Take Me To Movies" onClick={this.boutonStart.bind(this)} primary={true} /> 
