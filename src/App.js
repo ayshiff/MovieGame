@@ -140,7 +140,7 @@ class App extends Component {
         this.state.erreur += 1
       }
       if(this.state.erreur === 3){
-        alert('Vous avez perdu')
+        alert('Try again')
         this.state.erreur = 0;
       }
 
