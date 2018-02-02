@@ -24,8 +24,9 @@ import { setTimeout } from 'timers';
 class App extends Component {
   constructor(props){
     super(props);
+    // You have to put your api key after the api_key
     this.state = {
-      url: 'https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page=',
+      url: 'https://api.themoviedb.org/3/discover/movie?api_key='+'API key'+'&language=fr-FR&include_adult=false&include_video=false&page=',
       title: null,
       image: null,
       description: null,
@@ -79,11 +80,14 @@ class App extends Component {
         }
         var MoviePoster = 'https://image.tmdb.org/t/p/w500'+VueMovie.poster_path;
         var MovieBackDrop = 'https://image.tmdb.org/t/p/w500'+VueMovie.backdrop_path;
-        this.setState({title: MovieTitle});
-        this.setState({image: MoviePoster});
-        this.setState({backdrop: MovieBackDrop});
-        this.setState({average: MovieAverage});
-        this.setState({popularity: MoviePopularity});
+
+        this.setState({
+          title: MovieTitle,
+          image: MoviePoster,
+          backdrop: MovieBackDrop,
+          average: MovieAverage,
+          popularity: MoviePopularity
+        });
     });
 
     
@@ -118,12 +122,15 @@ class App extends Component {
     }
     var MoviePoster2 = 'https://image.tmdb.org/t/p/w500'+VueMovie2.poster_path;
     var MovieBackDrop2 = 'https://image.tmdb.org/t/p/w500'+VueMovie2.backdrop_path;
-    this.setState({titleRight: MovieTitle2});
-    this.setState({imageRight: MoviePoster2});
-    this.setState({backdropRight: MovieBackDrop2});
-    this.setState({averageRight: MovieAverage2});
-    this.setState({popularityRight: MoviePopularity2});
 
+    this.setState({
+      titleRight: MovieTitle2,
+      imageRight: MoviePoster2,
+      backdropRight: MovieBackDrop2,
+      averageRight: MovieAverage2,
+      popularityRight: MoviePopularity2
+    
+    });
 });
   };
 
