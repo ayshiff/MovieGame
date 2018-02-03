@@ -70,8 +70,9 @@
   .search {
     position: absolute;
     left: 44%;
-    top: 49%;
+    top: 48vh;
     z-index: 2;
+    font-family: 'Raleway', sans-serif;
   }
   
   .Score {
@@ -155,7 +156,12 @@
     height: 70px;
   }
 
-  
+  .loader {
+    position: absolute;
+    left: 47%;
+    top: 38vh;
+    z-index: 2;
+  }
 
 
 /* 

@@ -8,6 +8,7 @@ import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -40,7 +41,8 @@ class App extends Component {
       popularityRight: null,
       averageRight: null,
       score: 0,
-      erreur: 0
+      erreur: 0,
+      loader: 0
 
     };
     this.fetchMovies = this.fetchMovies.bind(this);
@@ -49,7 +51,7 @@ class App extends Component {
 
   // There are 2 functions to fetch the movies to find 2 movies the more random
 
-  fetchMovies () {
+  fetchMovies ()  {
     var pagevalueDiscover = Math.floor(Math.random() * 1000) + 1;
     
     var pagevalue = Math.floor(Math.random() * 100) + 1;
@@ -198,13 +200,21 @@ class App extends Component {
   
 
   // Add a new route to avoid this boutonStart function
-  boutonStart () {
+  boutonStart ()  {
+    this.setState({
+      loader: 1
+    })
     this.onButtonClick();
     document.querySelector('.search').style.display = 'none';
-    setTimeout(function(){
+    
+    setTimeout(() => {
     document.querySelector('.contentRight').style.display = 'block';
     document.querySelector('.contentLeft').style.display = 'block';
+    this.setState({
+      loader: 0
+    })
     }, 2500);
+    
     
   }
  
@@ -212,6 +222,11 @@ class App extends Component {
   
 
   render() {
+
+    const circularProgress =
+      <CircularProgress className='loader' color='#081c24' size={60} thickness={7} />
+    
+
     return (
      
       // Container App
@@ -230,10 +245,12 @@ class App extends Component {
       </div>
 
       {/*Button Take me to movies*/}
-      <div className='search'><RaisedButton label="Take Me To Movies" onClick={this.boutonStart.bind(this)} primary={true} /> 
+      <div className='search'><RaisedButton style={{fontFamily: 'Raleway'}} label="Take Me To Movies" onClick={this.boutonStart.bind(this)} primary={true} /> 
         </div>
+       
+       {this.state.loader === 1 ? circularProgress : null}
+    
        </MuiThemeProvider>
-
             {/*Flex container*/}
        <div className="FlexContainer">
 
