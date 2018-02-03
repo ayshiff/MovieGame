@@ -142,10 +142,14 @@ class App extends Component {
   onButtonClick = function(event){
     let averageRight = document.querySelector('.AverageRight')
     let averageLeft = document.querySelector('.AverageLeft')
+    let image = document.querySelector('.Image')
+    let image2 = document.querySelector('.Image2')
 
     var that = this;
     averageRight.style.display = 'block'; 
     averageLeft.style.display = 'block'; 
+    image.style.opacity = 0.35
+    image2.style.opacity = 0.35
 
     if(this.state.average >= this.state.averageRight ){
       this.state.score += 5;
@@ -160,6 +164,8 @@ class App extends Component {
       setTimeout(function(){
         averageRight.style.display = 'none';
         averageLeft.style.display = 'none';
+        image.style.opacity = 1
+        image2.style.opacity = 1
         that.fetchMovies();
         that.fetchMovies2();
         
@@ -169,11 +175,15 @@ class App extends Component {
   onButtonClick2 = function(event){
     let averageRight = document.querySelector('.AverageRight')
     let averageLeft = document.querySelector('.AverageLeft')
+    let image = document.querySelector('.Image')
+    let image2 = document.querySelector('.Image2')
 
     var that = this;
 
     averageRight.style.display = 'block'; 
     averageLeft.style.display = 'block'; 
+    image.style.opacity = 0.35
+    image2.style.opacity = 0.35
 
     if(this.state.average <= this.state.averageRight ){
       this.state.score += 5;
@@ -189,6 +199,8 @@ class App extends Component {
     setTimeout(function(){
       averageRight.style.display = 'none';
       averageLeft.style.display = 'none';
+      image.style.opacity = 1
+      image2.style.opacity = 1
       that.fetchMovies();
       that.fetchMovies2();
       
@@ -224,7 +236,7 @@ class App extends Component {
   render() {
 
     const circularProgress =
-      <CircularProgress className='loader' color='#081c24' size={60} thickness={7} />
+      <CircularProgress className='loader' color='#081c24' size={42} thickness={5} />
     
 
     return (
