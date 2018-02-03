@@ -26,7 +26,7 @@ class App extends Component {
     super(props);
     // You have to put your api key after the api_key
     this.state = {
-      url: 'https://api.themoviedb.org/3/discover/movie?api_key='+'API key'+'&language=fr-FR&include_adult=false&include_video=false&page=',
+      url: 'https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page=',
       title: null,
       image: null,
       description: null,
@@ -47,6 +47,7 @@ class App extends Component {
     this.fetchMovies2 = this.fetchMovies2.bind(this);
   }
 
+  // There are 2 functions to fetch the movies to find 2 movies the more random
 
   fetchMovies () {
     var pagevalueDiscover = Math.floor(Math.random() * 1000) + 1;
@@ -137,9 +138,12 @@ class App extends Component {
 
 
   onButtonClick = function(event){
+    let averageRight = document.querySelector('.AverageRight')
+    let averageLeft = document.querySelector('.AverageLeft')
+
     var that = this;
-    document.querySelector('.AverageRight').style.display = 'block'; 
-    document.querySelector('.AverageLeft').style.display = 'block'; 
+    averageRight.style.display = 'block'; 
+    averageLeft.style.display = 'block'; 
 
     if(this.state.average >= this.state.averageRight ){
       this.state.score += 5;
@@ -152,8 +156,8 @@ class App extends Component {
       }
 
       setTimeout(function(){
-        document.querySelector('.AverageRight').style.display = 'none';
-        document.querySelector('.AverageLeft').style.display = 'none';
+        averageRight.style.display = 'none';
+        averageLeft.style.display = 'none';
         that.fetchMovies();
         that.fetchMovies2();
         
@@ -161,9 +165,14 @@ class App extends Component {
   }
 
   onButtonClick2 = function(event){
+    let averageRight = document.querySelector('.AverageRight')
+    let averageLeft = document.querySelector('.AverageLeft')
+
     var that = this;
-    document.querySelector('.AverageRight').style.display = 'block'; 
-    document.querySelector('.AverageLeft').style.display = 'block'; 
+
+    averageRight.style.display = 'block'; 
+    averageLeft.style.display = 'block'; 
+
     if(this.state.average <= this.state.averageRight ){
       this.state.score += 5;
     } else {
@@ -176,8 +185,8 @@ class App extends Component {
       this.state.score = 0;
     }
     setTimeout(function(){
-      document.querySelector('.AverageLeft').style.display = 'none';
-      document.querySelector('.AverageRight').style.display = 'none';
+      averageRight.style.display = 'none';
+      averageLeft.style.display = 'none';
       that.fetchMovies();
       that.fetchMovies2();
       
@@ -187,16 +196,14 @@ class App extends Component {
     //this.fetchMovies2()
   }
   
+
+  // Add a new route to avoid this boutonStart function
   boutonStart () {
     this.onButtonClick();
     document.querySelector('.search').style.display = 'none';
     setTimeout(function(){
-    document.querySelector('.ContainerContribution').style.display = 'block';
-    document.querySelector('.Erreur').style.display = 'block';
-    document.querySelector('.Score').style.display = 'block';
     document.querySelector('.contentRight').style.display = 'block';
     document.querySelector('.contentLeft').style.display = 'block';
-    document.querySelector('.Rate').style.display = 'block';
     }, 2500);
     
   }
@@ -207,41 +214,45 @@ class App extends Component {
   render() {
     return (
      
-      
+      // Container App
       <div className="App">
+
+      {/*Header Container*/}
       <MuiThemeProvider muiTheme={theme} >
       <div className="header">
+      <div className="titleContainer">
+      <img className='ImageContribution' src ='./contribution.png' alt='Illustration Movie'  />
+      <h1 className="Rate">Who's the highest rated ? </h1>
+      </div>
       <h1 className="Score">Score : {this.state.score}</h1>
       <h1 className="Erreur">Erreurs : {this.state.erreur}</h1>
-      <h1 className="Rate">Who's the highest rated ? </h1>
       
       </div>
+
+      {/*Button Take me to movies*/}
       <div className='search'><RaisedButton label="Take Me To Movies" onClick={this.boutonStart.bind(this)} primary={true} /> 
         </div>
        </MuiThemeProvider>
+
+            {/*Flex container*/}
        <div className="FlexContainer">
+
+            {/*Content Left*/}
       <div className="contentLeft">
       <h1 className="AverageLeft">{this.state.average}</h1>
-      <div className='ImageContainer'> 
+     {/* <div className='ImageContainer'> */}
       <img className='Image2' src ={this.state.image} alt='Illustration Movie' onClick={this.onButtonClick.bind(this)} />
-      </div>
-      
-
-      </div>
-      <div className="ContainerContribution">
-      <img className='ImageContribution' src ='./contribution.png' alt='Illustration Movie'  />
+    {/*  </div> */}
       </div>
 
+            {/*Content Left*/}
       <div className="contentRight">
       <h1 className="AverageRight">{this.state.averageRight}</h1>
-      <div className='ImageContainerRight'> 
+    {/*  <div className='ImageContainerRight'> */}
       <img className='Image' src ={this.state.imageRight} alt='Illustration Movie' onClick={this.onButtonClick2.bind(this)} />
-      
-      
-
+      {/*  </div> */}
       </div>
-
-      </div>
+      
       </div>
       </div> 
     );
