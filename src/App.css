@@ -102,6 +102,7 @@
     font-weight: bold;
     font-size: 2em;
     margin-left: 2%;
+    white-space:nowrap;
   }
   .Rate, .Erreur,.Score {
     margin-bottom: 0;
@@ -112,7 +113,7 @@
     display: block;
     height: auto;
     width: 40px;
-
+    margin-left: 20px;
     z-index: 2;
     color: #f4f4f4;
   }
