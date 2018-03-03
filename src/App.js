@@ -192,7 +192,7 @@ class App extends Component {
       this.state.score = 0;
     }
     if(this.state.erreur == 3){
-      alert('Vous avez perdu')
+      alert('Try again')
       this.state.erreur = 0;
       this.state.score = 0;
     }
