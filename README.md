@@ -21,4 +21,21 @@ Run ``` npm start ```
 # Step 4
 Go to ```localhost:3000```
 
+# To run it with Docker
+
+Build and tag the Docker image:   
+``` $ docker build -t movie-game . ```   
+
+Then, spin up the container once the build is done:   
+```bash
+$ docker run -it \
+  -v ${PWD}:/usr/src/app \
+  -v /usr/src/app/node_modules \
+  -p 3000:3000 \
+  --rm \
+  sample-app
+```
+
+Open your browser to http://localhost:3000/ and you should see the app.
+
 Note : this project is still in developpement.
