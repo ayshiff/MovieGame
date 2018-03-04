@@ -1,15 +1,17 @@
-FROM node:carbon
+# base image
+FROM node:9.6.1
 
-# Create app directory
+# set working directory
+RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-# Install app dependencies
-COPY package*.json ./
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-RUN npm install
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@1.1.1 -g --silent
 
-# Bundle app source
-COPY . .
-
-EXPOSE 8080
-CMD [ "npm", "start" ]
+# start app
+CMD ["npm", "start"]
