@@ -23,6 +23,8 @@ Go to ```localhost:3000```
 
 # To run it with Docker
 
+You need to have [Docker](https://docs.docker.com/install/) installed before.
+
 Build and tag the Docker image:   
 ``` $ docker build -t movie-game . ```   
 
@@ -33,7 +35,7 @@ $ docker run -it \
   -v /usr/src/app/node_modules \
   -p 3000:3000 \
   --rm \
-  sample-app
+  movie-game
 ```
 
 Open your browser to http://localhost:3000/ and you should see the app.
