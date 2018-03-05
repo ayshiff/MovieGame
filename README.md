@@ -28,6 +28,8 @@ You need to have [Docker](https://docs.docker.com/install/) installed before.
 Build and tag the Docker image:   
 ``` $ docker build -t movie-game . ```   
 
+(Or pull the existing image from my [repository](https://hub.docker.com/r/ayshiff/docker-react/).
+
 Then, spin up the container once the build is done:   
 ```bash
 $ docker run -it \
