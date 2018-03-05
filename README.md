@@ -2,6 +2,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 Here I use my own API key to access movies data. You can use your own by going on https://www.themoviedb.org
 
+And replace it in the state url :   
+
+```
+this.state = {
+      url: 'https://api.themoviedb.org/3/discover/movie?api_key='+YOUR_API_KEY+'&language=fr-FR&include_adult=false&include_video=false&page='
+      }
+```   
+
 ![ScreenShot](/reference/ScreenShot.jpg)
 
 Below you will find some information.
@@ -28,7 +36,7 @@ You need to have [Docker](https://docs.docker.com/install/) installed before.
 Build and tag the Docker image:   
 ``` $ docker build -t movie-game . ```   
 
-(Or pull the existing image from my [repository](https://hub.docker.com/r/ayshiff/docker-react/).
+(Or pull the existing image from my [repository](https://hub.docker.com/r/ayshiff/docker-react/)).
 
 Then, spin up the container once the build is done:   
 ```bash
