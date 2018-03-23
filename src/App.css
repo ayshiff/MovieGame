@@ -81,7 +81,7 @@
     display: block;
     color: #f4f4f4;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
   
   .Erreur {
@@ -90,7 +90,7 @@
     display: block;
     color: #f4f4f4;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 
   .Rate {
@@ -100,7 +100,7 @@
     color: #f4f4f4;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.6em;
     margin-left: 2%;
     white-space:nowrap;
   }
@@ -165,6 +165,31 @@
     top: 38vh;
     z-index: 2;
   }
+
+  .modal {
+    z-index: 2147483647;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+  z-index: 2147483647;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
 
 
 /* 

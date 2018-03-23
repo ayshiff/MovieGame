@@ -16,8 +16,20 @@ import  theme  from './Theme';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import { setTimeout } from 'timers';
+import Modal from 'react-modal';
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
+Modal.setAppElement("#root")
 
 
 
@@ -42,11 +54,23 @@ class App extends Component {
       averageRight: null,
       score: 0,
       erreur: 0,
-      loader: 0
+      loader: 0,
+      modalIsOpen: false
 
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     this.fetchMovies = this.fetchMovies.bind(this);
     this.fetchMovies2 = this.fetchMovies2.bind(this);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
   }
 
   // There are 2 functions to fetch the movies to find 2 movies the more random
@@ -157,8 +181,9 @@ class App extends Component {
         this.state.erreur += 1
       }
       if(this.state.erreur === 3){
-        alert('Try again')
+        this.openModal()
         this.state.erreur = 0;
+        this.state.score = 0
       }
 
       setTimeout(function(){
@@ -189,12 +214,11 @@ class App extends Component {
       this.state.score += 5;
     } else {
       this.state.erreur += 1
-      this.state.score = 0;
     }
     if(this.state.erreur == 3){
-      alert('Try again')
+      this.openModal()
       this.state.erreur = 0;
-      this.state.score = 0;
+      this.state.score = 0
     }
     setTimeout(function(){
       averageRight.style.display = 'none';
@@ -225,7 +249,7 @@ class App extends Component {
     this.setState({
       loader: 0
     })
-    }, 2500);
+    }, 3500);
     
     
   }
@@ -243,6 +267,18 @@ class App extends Component {
      
       // Container App
       <div className="App">
+       <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+        <MuiThemeProvider muiTheme={theme} >
+          <div style={{textAlign: 'center'}}>Try again ?</div>
+          <RaisedButton style={{fontFamily: 'Raleway', marginTop: '15px'}} label="Take Me To Movies" onClick={this.closeModal} primary={true} /> 
+          </MuiThemeProvider>
+        </Modal>
 
       {/*Header Container*/}
       <MuiThemeProvider muiTheme={theme} >
