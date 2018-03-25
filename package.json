@@ -14,7 +14,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cypress open",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "cypress": "^2.1.0"
   }
 }
