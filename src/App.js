@@ -288,7 +288,7 @@ class App extends Component {
       <h1 className="Rate">Who's the highest rated ? </h1>
       </div>
       <h1 className="Score">Score : {this.state.score}</h1>
-      <h1 className="Erreur">Erreurs : {this.state.erreur}</h1>
+      <h1 className="Erreur">Errors : {this.state.erreur}</h1>
       
       </div>
 
