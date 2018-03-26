@@ -32,6 +32,16 @@ const customStyles = {
 Modal.setAppElement("#root")
 
 
+// Include Apollo
+import ApolloClient from "apollo-boost";
+import gql from "graphql-tag";
+
+// needs to implement dynamic uri
+const client = new ApolloClient({
+  uri: "https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page="
+});
+
+
 
 
 class App extends Component {
