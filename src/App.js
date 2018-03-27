@@ -18,6 +18,10 @@ import MenuItem from 'material-ui/MenuItem';
 import { setTimeout } from 'timers';
 import Modal from 'react-modal';
 
+// Include Apollo
+import ApolloClient from "apollo-boost";
+import gql from "graphql-tag";
+
 const customStyles = {
   content : {
     top                   : '50%',
@@ -31,6 +35,30 @@ const customStyles = {
 
 Modal.setAppElement("#root")
 
+
+
+
+// needs to implement dynamic uri
+/* const client = new ApolloClient({
+  uri: "https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page="
+});
+*/
+
+const client = new ApolloClient({
+  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+});
+
+client
+  .query({
+    query: gql`
+      {
+        rates(currency: "USD") {
+          currency
+        }
+      }
+    `
+  })
+  .then(data => console.log({ data }));
 
 
 
@@ -81,6 +109,13 @@ class App extends Component {
     var pagevalue = Math.floor(Math.random() * 100) + 1;
     
     var reex = /a-z!?,:0-9/
+
+    /* Apollo client */
+
+    /* const client = new ApolloClient({
+      uri: "https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page=" + pagevalue
+    }); */
+
     
         // First request
         axios.get(this.state.url + pagevalue)
