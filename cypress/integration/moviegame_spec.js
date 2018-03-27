@@ -9,8 +9,11 @@ describe("Base application", () => {
         cy.wait(3000);
         cy.get('.Image').click();
   
-        cy.wait(2000);
+        cy.wait(3000);
         cy.get('.Image2').click();
+
+        cy.wait(3000);
+        cy.get('.Image').click();
     })
 
     

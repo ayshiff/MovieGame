@@ -44,6 +44,22 @@ Modal.setAppElement("#root")
 });
 */
 
+const client = new ApolloClient({
+  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+});
+
+client
+  .query({
+    query: gql`
+      {
+        rates(currency: "USD") {
+          currency
+        }
+      }
+    `
+  })
+  .then(data => console.log({ data }));
+
 
 
 class App extends Component {
