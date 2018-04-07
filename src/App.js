@@ -103,7 +103,7 @@ class App extends Component {
 
   // There are 2 functions to fetch the movies to find 2 movies the more random
 
-  fetchMovies ()  {
+  async fetchMovies ()  {
     var pagevalueDiscover = Math.floor(Math.random() * 1000) + 1;
     
     var pagevalue = Math.floor(Math.random() * 100) + 1;
@@ -116,10 +116,12 @@ class App extends Component {
       uri: "https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page=" + pagevalue
     }); */
 
+    try {
     
         // First request
-        axios.get(this.state.url + pagevalue)
-        .then(response => {
+
+        let response = await axios(this.state.url + pagevalue);
+
         var RandomMovie = Math.floor(Math.random() * 19);
         var VueMovie = response.data.results[RandomMovie];
         var MovieTitle = VueMovie.title;
@@ -150,19 +152,24 @@ class App extends Component {
           average: MovieAverage,
           popularity: MoviePopularity
         });
-    });
 
-    
+
+  } catch(e) {
+    console.error(e)
+  }
   };
 
-  fetchMovies2 (){
+  async fetchMovies2 (){
     var reex = /a-z!?,:0-9/
     var pagevalueDiscover2 = Math.floor(Math.random() * 1000) + 1;
     var pagevalue2 = Math.floor(Math.random() * 60) + 1;
 
+    try {
+
     // Second request
-    axios.get(this.state.url + pagevalue2)
-    .then(response => {
+
+    let response = await axios(this.state.url + pagevalue2);
+
     var RandomMovie2 = Math.floor(Math.random() * 19);
     var VueMovie2 = response.data.results[RandomMovie2];
     var MovieTitle2 = VueMovie2.title;
@@ -193,7 +200,10 @@ class App extends Component {
       popularityRight: MoviePopularity2
     
     });
-});
+  } catch(e) {
+    console.error(e)
+  }
+
   };
 
 
