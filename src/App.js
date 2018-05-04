@@ -94,6 +94,16 @@ class App extends Component {
 
   openModal() {
     this.setState({modalIsOpen: true});
+    let currentScore = this.state.score
+    
+    if(!localStorage.getItem('score') || this.state.score > parseInt(localStorage.getItem('score'))) {
+    localStorage.setItem('score', this.state.score)
+  }
+  let hScore = localStorage.getItem('score')
+  this.setState({
+    highestScore: hScore,
+    Sscore: currentScore
+  })
   }
 
 
@@ -317,12 +327,14 @@ class App extends Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Modal content"
         >
         <MuiThemeProvider muiTheme={theme} >
           <div style={{textAlign: 'center'}}>Try again ?</div>
           <RaisedButton style={{fontFamily: 'Raleway', marginTop: '15px'}} label="Take Me To Movies" onClick={this.closeModal} primary={true} /> 
           </MuiThemeProvider>
+         <h1 className="scoreTitle">Your score is {this.state.Sscore}</h1>
+         <h1 className="scoreTitle">Your highest score is {this.state.highestScore}</h1>
         </Modal>
 
       {/*Header Container*/}
