@@ -40,7 +40,7 @@ Modal.setAppElement("#root")
 
 // needs to implement dynamic uri
 /* const client = new ApolloClient({
-  uri: "https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page="
+  uri: "https://api.themoviedb.org/3/discover/movie?api_key=""&language=fr-FR&include_adult=false&include_video=false&page="
 });
 */
 
@@ -67,7 +67,7 @@ class App extends Component {
     super(props);
     // You have to put your api key after the api_key
     this.state = {
-      url: 'https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page=',
+      url: 'https://api.themoviedb.org/3/discover/movie?api_key=""&language=fr-FR&include_adult=false&include_video=false&page=',
       title: null,
       image: null,
       description: null,
@@ -123,7 +123,7 @@ class App extends Component {
     /* Apollo client */
 
     /* const client = new ApolloClient({
-      uri: "https://api.themoviedb.org/3/discover/movie?api_key=6411cdf86812f3aa034a00c5987adb76&language=fr-FR&include_adult=false&include_video=false&page=" + pagevalue
+      uri: "https://api.themoviedb.org/3/discover/movie?api_key=""&language=fr-FR&include_adult=false&include_video=false&page=" + pagevalue
     }); */
 
     try {
